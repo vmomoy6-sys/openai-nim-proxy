@@ -70,7 +70,7 @@ app.post('/v1/chat/completions', async (req, res) => {
     
     // Smart model selection with fallback + logging
 let nimModel = MODEL_MAPPING[model];
-console.log(`[Proxy] Requested model: "\( {model}" → Mapped to: " \){nimModel || 'NONE'}"`);
+console.log(`[Proxy] Requested model: "${model}" → Mapped to: "${nimModel || 'NONE'}"`);
 
 if (!nimModel) {
   console.log(`[Proxy] No mapping found for "${model}", trying direct NIM call...`);
