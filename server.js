@@ -22,22 +22,29 @@ const SHOW_REASONING = false; // Set to true to show reasoning with <think> tags
 const ENABLE_THINKING_MODE = false; // Set to true to enable chat_template_kwargs thinking parameter
 
 // Model mapping (adjust based on available NIM models)
-// Model mapping (adjust based on available NIM models)
 const MODEL_MAPPING = {
   'gpt-3.5-turbo': 'nvidia/llama-3.1-nemotron-ultra-253b-v1',
   'gpt-4': 'deepseek-ai/deepseek-v4-pro',
-  'gpt-4-turbo': 'deepseek-ai/deepseek-v4-pro',     // or keep your previous one
+  'gpt-4-turbo': 'deepseek-ai/deepseek-v4-pro',
   'gpt-4o': 'deepseek-ai/deepseek-v4-pro',
   'claude-3-opus': 'openai/gpt-oss-120b',
   'claude-3-sonnet': 'openai/gpt-oss-20b',
   'gemini-pro': 'z-ai/glm-5.1',
   
-  // Direct aliases (recommended)
+  // Direct aliases and exact NIM names (Fixes the undefined lookup)
+  'nvidia/llama-3.1-nemotron-ultra-253b-v1': 'nvidia/llama-3.1-nemotron-ultra-253b-v1',
+  'deepseek-ai/deepseek-v4-pro': 'deepseek-ai/deepseek-v4-pro',
+  'openai/gpt-oss-120b': 'openai/gpt-oss-120b',
+  'openai/gpt-oss-20b': 'openai/gpt-oss-20b',
+  'z-ai/glm-5.1': 'z-ai/glm-5.1',
+  
+  // Short-hand aliases
   'deepseek-v4-pro': 'deepseek-ai/deepseek-v4-pro',
   'deepseek': 'deepseek-ai/deepseek-v4-pro',
   'glm-5.1': 'z-ai/glm-5.1',
   'glm': 'z-ai/glm-5.1'
 };
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.json({ 
